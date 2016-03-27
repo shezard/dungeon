@@ -9,6 +9,8 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var assign = require('lodash/assign');
 
+var Server = require('karma').Server;
+
 // add custom browserify options here
 var customOpts = {
   entries: ['./src/index.js'],
@@ -38,3 +40,11 @@ function bundle() {
     .pipe(sourcemaps.write('./')) // writes .map file
     .pipe(gulp.dest('./dist'));
 }
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
+});
+
+gulp.task('default', ['build-js', 'test'])
