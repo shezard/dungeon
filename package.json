@@ -1,0 +1,14 @@
+{
+  "name": "dungeon",
+  "version": "1.0.0",
+  "description": "A simple game",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "Damien Fayol",
+  "license": "ISC",
+  "devDependencies": {
+    "karma": "^0.13.22"
+  }
+}
