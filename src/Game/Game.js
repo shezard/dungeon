@@ -1,3 +1,5 @@
+var State = require('./State');
+
 module.exports = {
   start: start,
   step: step,
@@ -10,9 +12,8 @@ function start() {
 }
 
 function step(state) {
-
-  if(!state || state.level == null || state.level < 0) {
-    throw new Error('Invalid state');
+  if(!State.isValid(state)) {
+    throw new State.invalid();
   }
 
   return {
