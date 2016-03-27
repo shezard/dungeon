@@ -1,24 +1,24 @@
-var Launcher = require('../../src/Launcher.js');
+var Game = require('../../src/Game.js');
 
-describe('Launcher', function() {
+describe('Game', function() {
 
   it('should have a start method', function() {
-    expect(Launcher.start).toEqual(jasmine.any(Function));
+    expect(Game.start).toEqual(jasmine.any(Function));
   });
 
   it('initial state must have some default values', function() {
-    var game = Launcher.start();
+    var game = Game.start();
     expect(game).toEqual({
       level: 0
     });
   });
 
   it('should have a step method', function() {
-    expect(Launcher.step).toEqual(jasmine.any(Function));
+    expect(Game.step).toEqual(jasmine.any(Function));
   });
 
   it('should return next state given an initial state', function() {
-    var next = Launcher.step({
+    var next = Game.step({
       level: 0
     });
 
@@ -30,15 +30,15 @@ describe('Launcher', function() {
   it('should proceed only with valid states', function() {
 
     expect(function() {
-      Launcher.step()
+      Game.step()
     }).toThrow(new Error("Invalid state"));
 
     expect(function() {
-      Launcher.step({})
+      Game.step({})
     }).toThrow(new Error("Invalid state"));
 
     expect(function() {
-      Launcher.step({
+      Game.step({
         level: -1
       })
     }).toThrow(new Error("Invalid state"));
