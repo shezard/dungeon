@@ -1,18 +1,22 @@
-var State = require('./State');
+var units = {
+  skeleton: {
+    hp: 2,
+    attack: 1
+  }
+}
 
 module.exports = {
   create: create
 }
 
-function create(state) {
-
-  if(!State.isValid(state)) {
-    throw new State.invalid();
+function create(name) {
+  if(!name) {
+    throw new Error('Empty mob id');
   }
 
-  return {
-    level: 0,
-    hp: 2,
-    attack: 1,
+  if(!units[name]) {
+    throw new Error('Invalid mob id: ' + name);
   }
+
+  return units[name];
 }

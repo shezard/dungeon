@@ -6,31 +6,24 @@ describe('Mob', function() {
     expect(Mob.create).toEqual(jasmine.any(Function));
   });
 
-  it('should create a mob given a state', function() {
-    var mob = Mob.create({
-      level: 0
-    });
+  it('should create a mob given a name', function() {
+    var mob = Mob.create('skeleton');
 
     expect(mob).toEqual({
-      level: 0,
       hp: 2,
       attack: 1
     });
   });
 
-  it('should only proceed with valid state', function() {
+  it('should throw on invalid mob creation request', function() {
+
     expect(function() {
       Mob.create()
-    }).toThrow(new Error("Invalid state"));
+    }).toThrow(new Error('Empty mob id'));
 
     expect(function() {
-      Mob.create({})
-    }).toThrow(new Error("Invalid state"));
+      Mob.create('impossible')
+    }).toThrow(new Error('Invalid mob id: impossible'));
 
-    expect(function() {
-      Mob.create({
-        level: -1
-      })
-    }).toThrow(new Error("Invalid state"));
   });
 });
