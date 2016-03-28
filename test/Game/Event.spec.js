@@ -19,6 +19,12 @@ describe('Event', function() {
         hp: 1,
         attack: 1
       }]
+    }, {
+      foes: [{
+        name: 'skeleton',
+        hp: 2,
+        attack: 1
+      }]
     }]);
   });
 });

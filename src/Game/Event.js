@@ -9,5 +9,7 @@ module.exports = function() {
 function create(state) {
   return [{
     foes: [Mob.create('goblin')]
-  }]
+  }, {
+    foes: [Mob.create('skeleton')]
+  }];
 }
