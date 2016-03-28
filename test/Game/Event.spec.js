@@ -1,4 +1,6 @@
-var Event = require('../../src/Game/Event');
+var Event = require('../../src/Game/Event')(
+  // TODO : inject random here
+);
 
 describe('Event', function() {
 

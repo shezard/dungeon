@@ -1,7 +1,9 @@
 var Mob = require('./Mob');
 
-module.exports = {
-  create: create
+module.exports = function() {
+  return {
+    create: create
+  };  
 };
 
 function create(state) {
