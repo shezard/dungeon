@@ -10,6 +10,7 @@ describe('Mob', function() {
     var mob = Mob.create('skeleton');
 
     expect(mob).toEqual({
+      name: 'skeleton',
       hp: 2,
       attack: 1
     });

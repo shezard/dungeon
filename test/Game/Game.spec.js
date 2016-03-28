@@ -11,6 +11,7 @@ describe('Game', function() {
     expect(game).toEqual({
       level: 0,
       friends: [{
+        name: 'soldier',
         hp: 3,
         attack: 1
       }]
@@ -44,6 +45,31 @@ describe('Game', function() {
       foes: [{
         attack: 1,
         hp: 2
+      }]
+    });
+
+    expect(next).toEqual({
+      level: 1,
+      friends: [{
+        attack: 1,
+        hp: 1
+      }],
+      foes: []
+    });
+
+    var next = Game.step({
+      level: 0,
+      friends: [{
+        attack: 1,
+        hp: 3
+      }]
+    }, {
+      foes: [{
+        attack: 1,
+        hp: 1
+      }, {
+        attack: 1,
+        hp: 1
       }]
     });
 

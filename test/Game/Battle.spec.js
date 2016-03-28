@@ -61,5 +61,18 @@ describe('Battle', function() {
       }],
       foes: []
     });
+
+    it('should resolve lost battle', function() {
+      expect(Battle([{
+        attack: 1,
+        hp: 1
+      }], [{
+        attack: 1,
+        hp: 1
+      }])).toEqual({
+        friends: [],
+        foes: []
+      })
+    })
   });
 });

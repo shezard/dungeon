@@ -1,7 +1,17 @@
 var units = {
-  skeleton: {
-    hp: 2,
-    attack: 1
+  soldier: function() {
+    return {
+      name: 'soldier',
+      hp: 3,
+      attack: 1
+    };
+  },
+  skeleton: function() {
+    return {
+      name: 'skeleton',
+      hp: 2,
+      attack: 1
+    };
   }
 }
 
@@ -18,5 +28,5 @@ function create(name) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  return units[name];
+  return units[name]();
 }

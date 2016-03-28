@@ -1,5 +1,6 @@
 var State = require('./State');
 var Battle = require('./Battle');
+var Mob = require('./Mob');
 var _ = require('lodash');
 
 module.exports = {
@@ -10,10 +11,7 @@ module.exports = {
 function start() {
   return {
     level: 0,
-    friends: [{
-      hp: 3,
-      attack: 1
-    }]
+    friends: [Mob.create('soldier')]
   };
 }
 
