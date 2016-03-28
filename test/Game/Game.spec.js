@@ -9,7 +9,11 @@ describe('Game', function() {
   it('initial state must have some default values', function() {
     var game = Game.start();
     expect(game).toEqual({
-      level: 0
+      level: 0,
+      friends: [{
+        hp: 3,
+        attack: 1
+      }]
     });
   });
 
@@ -23,7 +27,33 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
-      level: 1
+      level: 1,
+      friends: [],
+      foes: []
+    });
+  });
+
+  it('should resolve battle events', function() {
+    var next = Game.step({
+      level: 0,
+      friends: [{
+        attack: 1,
+        hp: 3
+      }]
+    }, {
+      foes: [{
+        attack: 1,
+        hp: 2
+      }]
+    });
+
+    expect(next).toEqual({
+      level: 1,
+      friends: [{
+        attack: 1,
+        hp: 2
+      }],
+      foes: []
     });
   });
 
