@@ -10,7 +10,7 @@ module.exports = {
 
 function start() {
   return {
-    level: 0,
+    day: 0,
     friends: [Mob.create('soldier')]
   };
 }
@@ -26,7 +26,7 @@ function step(state, event) {
   var result = Battle(friends, foes);
 
   return {
-    level: state.level + 1,
+    day: state.day + 1,
     friends: result.friends,
     foes: result.foes
   }

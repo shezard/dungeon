@@ -10,7 +10,7 @@ describe('Event', function() {
 
   it('should generate events from a state', function() {
     var events = Event.create({
-      level: 0
+      day: 0
     });
 
     expect(events).toEqual([{

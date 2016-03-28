@@ -1,5 +1,23 @@
 var Mob = require('./Mob');
 
+var days = [
+  [{
+    foes: [Mob.create('goblin')]
+  }, {
+    foes: [Mob.create('skeleton')]
+  }],
+  [{
+    foes: [Mob.create('goblin')]
+  }, {
+    foes: [Mob.create('skeleton')]
+  }],
+  [{
+    foes: [Mob.create('goblin')]
+  }, {
+    foes: [Mob.create('skeleton')]
+  }]
+];
+
 module.exports = function() {
   return {
     create: create
@@ -7,9 +25,5 @@ module.exports = function() {
 };
 
 function create(state) {
-  return [{
-    foes: [Mob.create('goblin')]
-  }, {
-    foes: [Mob.create('skeleton')]
-  }];
+  return days[state.day];
 }

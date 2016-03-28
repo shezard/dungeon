@@ -9,7 +9,7 @@ describe('Game', function() {
   it('initial state must have some default values', function() {
     var game = Game.start();
     expect(game).toEqual({
-      level: 0,
+      day: 0,
       friends: [{
         name: 'soldier',
         hp: 3,
@@ -24,11 +24,11 @@ describe('Game', function() {
 
   it('should return next state given an initial state', function() {
     var next = Game.step({
-      level: 0
+      day: 0
     });
 
     expect(next).toEqual({
-      level: 1,
+      day: 1,
       friends: [],
       foes: []
     });
@@ -36,7 +36,7 @@ describe('Game', function() {
 
   it('should resolve battle events', function() {
     var next = Game.step({
-      level: 0,
+      day: 0,
       friends: [{
         attack: 1,
         hp: 3
@@ -49,7 +49,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
-      level: 1,
+      day: 1,
       friends: [{
         attack: 1,
         hp: 1
@@ -58,7 +58,7 @@ describe('Game', function() {
     });
 
     var next = Game.step({
-      level: 0,
+      day: 0,
       friends: [{
         attack: 1,
         hp: 3
@@ -74,7 +74,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
-      level: 1,
+      day: 1,
       friends: [{
         attack: 1,
         hp: 1
@@ -95,7 +95,7 @@ describe('Game', function() {
 
     expect(function() {
       Game.step({
-        level: -1
+        day: -1
       })
     }).toThrow(new Error("Invalid state"));
   });
