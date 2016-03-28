@@ -13,13 +13,13 @@ function showState(state) {
 }
 
 function showEvents(events) {
-  _.each(events, function(event, index) {
-    showEvent(event, index);
-  });
+  console.log(_.map(events, function(event, index) {
+    return showEvent(event, index);
+  }).join('\n'));
 }
 
 function showEvent(event, index) {
-  console.log(index + " > Fight : " + _.map(event.foes, function(foe) {
+  return index + " > Fight : " + _.map(event.foes, function(foe) {
     return foe.name + ' (' + foe.attack + '/' + foe.hp + ')'
-  }).join(', '));
+  }).join(', ');
 }
