@@ -7,11 +7,28 @@ describe('Mob', function() {
   });
 
   it('should create a mob given a name', function() {
-    var mob = Mob.create('skeleton');
 
-    expect(mob).toEqual({
+    var soldier = Mob.create('soldier');
+
+    expect(soldier).toEqual({
+      name: 'soldier',
+      hp: 3,
+      attack: 1
+    });
+
+    var skeleton = Mob.create('skeleton');
+
+    expect(skeleton).toEqual({
       name: 'skeleton',
       hp: 2,
+      attack: 1
+    });
+
+    var goblin = Mob.create('goblin');
+
+    expect(goblin).toEqual({
+      name: 'goblin',
+      hp: 1,
       attack: 1
     });
   });

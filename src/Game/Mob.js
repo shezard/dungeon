@@ -12,6 +12,13 @@ var units = {
       hp: 2,
       attack: 1
     };
+  },
+  goblin: function() {
+    return {
+      name: 'goblin',
+      hp: 1,
+      attack: 1
+    }
   }
 }
 
