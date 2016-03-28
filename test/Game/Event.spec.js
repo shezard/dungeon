@@ -8,16 +8,17 @@ describe('Event', function() {
     expect(Event.create).toEqual(jasmine.any(Function));
   });
 
-  it('should generate an event from a state', function() {
-    var event = Event.create({
+  it('should generate events from a state', function() {
+    var events = Event.create({
       level: 0
     });
-    expect(event).toEqual({
+
+    expect(events).toEqual([{
       foes: [{
-        name: 'skeleton',
-        hp: 2,
+        name: 'goblin',
+        hp: 1,
         attack: 1
       }]
-    })
+    }]);
   });
 });
