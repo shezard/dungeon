@@ -51,7 +51,7 @@ describe('Game', function() {
       level: 1,
       friends: [{
         attack: 1,
-        hp: 2
+        hp: 1
       }],
       foes: []
     });

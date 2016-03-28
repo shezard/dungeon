@@ -13,7 +13,7 @@ describe('Battle', function() {
     }])).toEqual({
       friends: [{
         attack: 1,
-        hp: 3
+        hp: 2
       }],
       foes: []
     });
@@ -27,7 +27,7 @@ describe('Battle', function() {
     }])).toEqual({
       friends: [{
         attack: 1,
-        hp: 2
+        hp: 1
       }],
       foes: []
     });
@@ -39,13 +39,27 @@ describe('Battle', function() {
       attack: 2,
       hp: 2
     }])).toEqual({
+      friends: [],
+      foes: []
+    });
+  });
+
+  it('should resolve multi units battle', function() {
+    expect(Battle([{
+      attack: 1,
+      hp: 1
+    }, {
+      attack: 1,
+      hp: 2
+    }], [{
+      attack: 1,
+      hp: 2
+    }])).toEqual({
       friends: [{
         attack: 1,
         hp: 1
       }],
       foes: []
     });
-
   });
-
 });
