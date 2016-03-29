@@ -31,6 +31,7 @@ function step(state, event) {
   return {
     day: state.day + 1,
     friends: result.friends,
-    foes: result.foes
+    foes: result.foes,
+    gold: (state.gold || 0) + (result.gold || 0)
   }
 }

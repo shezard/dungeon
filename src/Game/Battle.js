@@ -5,6 +5,8 @@ module.exports = function(friends, foes) {
   var friendIdx = 0;
   var foeIdx = 0;
 
+  var gold = 0;
+
   if(!friends[friendIdx] || !foes[foeIdx]) {
     return {
       friends: friends,
@@ -20,6 +22,10 @@ module.exports = function(friends, foes) {
       friendIdx += 1;
     }
 
+    if(foes[foeIdx].hp <= 0) {
+      gold += foes[foeIdx].gold || 0;
+    }
+
     if(foes[foeIdx].hp <= 0 && foes[foeIdx + 1]) {
       foeIdx += 1;
     }
@@ -31,7 +37,7 @@ module.exports = function(friends, foes) {
     }),
     foes: _.filter(foes, function(foe) {
       return foe.hp > 0;
-    })
-  }
-
+    }),
+    gold: gold
+  };
 }

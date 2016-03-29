@@ -15,7 +15,8 @@ describe('Battle', function() {
         attack: 1,
         hp: 2
       }],
-      foes: []
+      foes: [],
+      gold: 0
     });
 
     expect(Battle([{
@@ -29,7 +30,8 @@ describe('Battle', function() {
         attack: 1,
         hp: 1
       }],
-      foes: []
+      foes: [],
+      gold: 0
     });
 
     expect(Battle([{
@@ -40,7 +42,8 @@ describe('Battle', function() {
       hp: 2
     }])).toEqual({
       friends: [],
-      foes: []
+      foes: [],
+      gold: 0
     });
   });
 
@@ -59,20 +62,40 @@ describe('Battle', function() {
         attack: 1,
         hp: 1
       }],
-      foes: []
+      foes: [],
+      gold: 0
     });
+  });
 
-    it('should resolve lost battle', function() {
-      expect(Battle([{
-        attack: 1,
-        hp: 1
-      }], [{
-        attack: 1,
-        hp: 1
-      }])).toEqual({
-        friends: [],
-        foes: []
-      })
+  it('should resolve lost battle', function() {
+    expect(Battle([{
+      attack: 1,
+      hp: 1
+    }], [{
+      attack: 1,
+      hp: 1
+    }])).toEqual({
+      friends: [],
+      foes: [],
+      gold: 0
     })
+  });
+
+  it('should handle gold rewards', function() {
+    expect(Battle([{
+      attack: 1,
+      hp: 2
+    }], [{
+      attack: 1,
+      hp: 1,
+      gold: 10
+    }])).toEqual({
+      friends: [{
+        attack: 1,
+        hp: 1
+      }],
+      foes: [],
+      gold: 10
+    });
   });
 });

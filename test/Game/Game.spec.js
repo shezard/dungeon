@@ -30,7 +30,8 @@ describe('Game', function() {
     expect(next).toEqual({
       day: 1,
       friends: [],
-      foes: []
+      foes: [],
+      gold: 0
     });
   });
 
@@ -54,7 +55,8 @@ describe('Game', function() {
         attack: 1,
         hp: 1
       }],
-      foes: []
+      foes: [],
+      gold: 0
     });
 
     var next = Game.step({
@@ -79,7 +81,8 @@ describe('Game', function() {
         attack: 1,
         hp: 1
       }],
-      foes: []
+      foes: [],
+      gold: 0
     });
   });
 
@@ -106,7 +109,34 @@ describe('Game', function() {
         attack: 1,
         hp: 3
       }],
-      foes: []
+      foes: [],
+      gold: 0
+    });
+  });
+
+  it('should add gold if a battle gives gold', function() {
+    var next = Game.step({
+      day: 1,
+      friends: [{
+        attack: 1,
+        hp: 3
+      }]
+    }, {
+      foes: [{
+        attack: 1,
+        hp: 1,
+        gold: 1
+      }]
+    });
+
+    expect(next).toEqual({
+      day: 2,
+      friends: [{
+        attack: 1,
+        hp: 2
+      }],
+      foes: [],
+      gold: 1
     });
   });
 
