@@ -83,6 +83,33 @@ describe('Game', function() {
     });
   });
 
+  it('should resolve new troups events', function() {
+    var next = Game.step({
+      day: 1,
+      friends: [{
+        attack: 1,
+        hp: 3
+      }]
+    }, {
+      friends: [{
+        attack: 1,
+        hp: 3
+      }]
+    });
+
+    expect(next).toEqual({
+      day: 2,
+      friends: [{
+        attack: 1,
+        hp: 3
+      }, {
+        attack: 1,
+        hp: 3
+      }],
+      foes: []
+    });
+  });
+
   it('should proceed only with valid states', function() {
 
     expect(function() {

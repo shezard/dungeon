@@ -8,7 +8,7 @@ describe('Event', function() {
     expect(Event.create).toEqual(jasmine.any(Function));
   });
 
-  it('should generate events from a state', function() {
+  it('should generate events from a state for first day', function() {
     var events = Event.create({
       day: 0
     });
@@ -23,6 +23,20 @@ describe('Event', function() {
       foes: [{
         name: 'skeleton',
         hp: 2,
+        attack: 1
+      }]
+    }]);
+  });
+
+  it('should generate events from state for second day', function() {
+    var events = Event.create({
+      day: 1
+    });
+
+    expect(events).toEqual([{
+      friends: [{
+        name: 'soldier',
+        hp: 3,
         attack: 1
       }]
     }]);

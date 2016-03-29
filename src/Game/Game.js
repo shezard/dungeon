@@ -21,6 +21,9 @@ function step(state, event) {
   }
 
   var friends = _.get(state, 'friends', []);
+  var newFriends = _.get(event, 'friends', []);
+  friends = _.concat(friends, newFriends);
+
   var foes = _.get(event, 'foes', []);
 
   var result = Battle(friends, foes);

@@ -7,9 +7,7 @@ var days = [
     foes: [Mob.create('skeleton')]
   }],
   [{
-    foes: [Mob.create('goblin')]
-  }, {
-    foes: [Mob.create('skeleton')]
+    friends: [Mob.create('soldier')]
   }],
   [{
     foes: [Mob.create('goblin')]
