@@ -12,6 +12,7 @@ module.exports = {
 function init(step) {
   $('body').on('click', '.event', function() {
     var event = JSON.parse($(this).attr('data-event'));
+    $('body').empty();
     step(event);
   });
 };
