@@ -24,6 +24,7 @@
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
+    "jquery": "^2.2.2",
     "lodash": "^4.6.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

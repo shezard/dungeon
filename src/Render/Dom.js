@@ -1,6 +1,7 @@
 var _ = require('lodash');
+var $ = require('jquery');
 
-var EOL = '\n';
+var EOL = '<br/>';
 
 module.exports = {
   showState: showState,
@@ -8,16 +9,16 @@ module.exports = {
 };
 
 function showState(state) {
-  console.log("Day : " + state.day + EOL);
-  console.log("Units : " + _.map(state.friends, function(friend) {
+  $('body').append("Day : " + state.day + EOL);
+  $('body').append("Units : " + _.map(state.friends, function(friend) {
     return friend.name + ' (' + friend.attack + '/' + friend.hp + ')'
   }).join(' ,') + EOL);
 }
 
 function showEvents(events) {
-  console.log(_.map(events, function(event, index) {
+  $('body').append(_.map(events, function(event, index) {
     return showEvent(event, index);
-  }).join(EOL));
+  }).join(EOL) + EOL);
 }
 
 function showEvent(event, index) {

@@ -1,7 +1,7 @@
 var Game = require('./Game/Game');
 var Event = require('./Game/Event')();
 
-var Render = require('./Render/Console');
+var Render = require('./Render/Dom');
 
 var state = Game.start();
 Render.showState(state);
