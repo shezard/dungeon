@@ -3,17 +3,19 @@ var Event = require('./Game/Event')();
 
 var Render = require('./Render/Dom');
 
-var state = Game.start();
+var state;
+var events;
+
+Render.init(function(event) {
+  state = Game.step(state, event);
+  Render.showState(state);
+
+  events = Event.create(state);
+  Render.showEvents(events);
+});
+
+state = Game.start();
 Render.showState(state);
 
-var events = Event.create(state);
+events = Event.create(state);
 Render.showEvents(events);
-
-state = Game.step(state, events[0]);
-Render.showState(state);
-
-var events = Event.create(state);
-Render.showEvents(events);
-
-state = Game.step(state, events[0]);
-Render.showState(state);

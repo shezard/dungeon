@@ -3,9 +3,14 @@ var _ = require('lodash');
 var EOL = '\n';
 
 module.exports = {
+  init: init,
   showState: showState,
   showEvents: showEvents
 };
+
+function init() {
+  
+}
 
 function showState(state) {
   console.log("Day : " + state.day + EOL);
