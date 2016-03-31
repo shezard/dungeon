@@ -31,6 +31,7 @@ describe('Game', function() {
       day: 1,
       friends: [],
       foes: [],
+      buildings: [],
       gold: 0
     });
   });
@@ -56,6 +57,7 @@ describe('Game', function() {
         hp: 1
       }],
       foes: [],
+      buildings: [],
       gold: 0
     });
 
@@ -81,6 +83,7 @@ describe('Game', function() {
         attack: 1,
         hp: 1
       }],
+      buildings: [],
       foes: [],
       gold: 0
     });
@@ -110,6 +113,7 @@ describe('Game', function() {
         hp: 3
       }],
       foes: [],
+      buildings: [],
       gold: 0
     });
   });
@@ -136,7 +140,31 @@ describe('Game', function() {
         hp: 2
       }],
       foes: [],
+      buildings: [],
       gold: 1
+    });
+  });
+
+  it('should resolve new buildings events', function() {
+    var next = Game.step({
+      day: 0,
+      gold: 5
+    }, {
+      buildings: [{
+        name: 'barrack',
+        cost: 5
+      }]
+    });
+
+    expect(next).toEqual({
+      day: 1,
+      gold: 0,
+      friends: [],
+      foes: [],
+      buildings: [{
+        name: 'barrack',
+        cost: 5
+      }]
     });
   });
 

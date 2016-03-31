@@ -1,5 +1,6 @@
 var State = require('./State');
 var Battle = require('./Battle');
+var Construct = require('./Construct');
 var Mob = require('./Mob');
 var _ = require('lodash');
 
@@ -26,12 +27,17 @@ function step(state, event) {
 
   var foes = _.get(event, 'foes', []);
 
-  var result = Battle(friends, foes);
+  var battle = Battle(friends, foes);
+
+  var buildings = _.get(state, 'buildings', []);
+  var newBuildings = _.get(event, 'buildings', []);
+  var construct = Construct(buildings, newBuildings);
 
   return {
     day: state.day + 1,
-    friends: result.friends,
-    foes: result.foes,
-    gold: (state.gold || 0) + (result.gold || 0)
+    friends: battle.friends,
+    foes: battle.foes,
+    buildings : construct.buildings,
+    gold: (state.gold || 0) + (battle.gold || 0) + (construct.gold || 0)
   }
 }
