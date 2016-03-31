@@ -14,12 +14,14 @@ describe('Event', function() {
     });
 
     expect(events).toEqual([{
+      isValid: true,
       foes: [{
         name: 'goblin',
         hp: 1,
         attack: 1
       }]
     }, {
+      isValid: true,
       foes: [{
         name: 'skeleton',
         hp: 2,
@@ -34,10 +36,17 @@ describe('Event', function() {
     });
 
     expect(events).toEqual([{
+      isValid: true,
       friends: [{
         name: 'soldier',
         hp: 3,
         attack: 1
+      }]
+    }, {
+      isValid: false,
+      buildings: [{
+        name: 'barrack',
+        cost: 5,
       }]
     }]);
   });

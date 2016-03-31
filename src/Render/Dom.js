@@ -26,7 +26,13 @@ function showState(state) {
 
 function showEvents(events) {
   $('body').append(_.map(events, function(event, index) {
-    return '<span class="event" data-event=' + JSON.stringify(event) + '>' + showEvent(event, index) + '</span>';
+
+    if(event.isValid) {
+      return '<span class="event" data-event=' + JSON.stringify(event) + '>' + showEvent(event, index) + '</span>';
+    } else {
+      return '<span style="text-decoration:line-through">' + showEvent(event, index) + '</span>';
+    }
+
   }).join(EOL) + EOL);
 }
 
@@ -35,24 +41,34 @@ function showEvent(event, index) {
   var events = '';
 
   if(event.foes && event.foes.length) {
-    events += showFight(event, index);
+    events += showBattle(event, index);
   }
 
   if(event.friends && event.friends.length) {
     events += showJoin(event, index);
   }
 
+  if(event.buildings && event.buildings.length) {
+    events += showConstruct(event, index);
+  }
+
   return events;
 }
 
-function showFight(event, index) {
+function showBattle(event, index) {
   return index + " > Fight : " + _.map(event.foes, function(foe) {
-    return foe.name + ' (' + foe.attack + '/' + foe.hp + ')'
+    return foe.name + ' (' + foe.attack + ' dmg / ' + foe.hp + ' hp)'
   }).join(', ');
 }
 
 function showJoin(event, index) {
-  return index + " > Join : " + _.map(event.friends, function(friend) {
-    return friend.name + ' (' + friend.attack + '/' + friend.hp + ')'
+  return index + " > Hire : " + _.map(event.friends, function(friend) {
+    return friend.name + ' (' + friend.attack + ' dmg / ' + friend.hp + ' hp)'
+  }).join(', ');
+}
+
+function showConstruct(event, index) {
+  return index + " > Build : " + _.map(event.buildings, function(building) {
+    return building.name + ' (' + building.cost + ' gold)'
   }).join(', ');
 }

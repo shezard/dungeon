@@ -1,6 +1,7 @@
 var Mob = require('./Mob');
+var Building = require('./Building');
 
-var days = [
+var events = [
   [{
     foes: [Mob.create('goblin')]
   }, {
@@ -8,6 +9,8 @@ var days = [
   }],
   [{
     friends: [Mob.create('soldier')]
+  }, {
+    buildings: [Building.create('barrack')]
   }],
   [{
     foes: [Mob.create('goblin')]
@@ -23,5 +26,19 @@ module.exports = function() {
 };
 
 function create(state) {
-  return days[state.day];
+
+  var currentEvents = events[state.day];
+
+  currentEvents = _.map(currentEvents, function(event) {
+
+    var buildings = _.get(event, 'buildings', []);
+    var buildingCosts = _.reduce(buildings, function(sum, building) {
+      return sum + building.cost;
+    }, 0);
+
+    event.isValid = (state.gold || 0) >= buildingCosts;
+    return event;
+  })
+
+  return currentEvents;
 }
