@@ -1,8 +1,11 @@
+# Dungeon
+
+A simple javascript rpg
+
 ### Install
 
 > npm install
-> npm install -g karma-cli
 
-### Test
+### Build
 
-> npm test
+> gulp
