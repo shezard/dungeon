@@ -19,6 +19,7 @@ function init(step) {
 
 function showState(state) {
   $('body').append("Day : " + state.day + EOL);
+  $('body').append("Gold: " + (state.gold || 0) + EOL);
   $('body').append("Units : " + _.map(state.friends, function(friend) {
     return friend.name + ' (' + friend.attack + '/' + friend.hp + ')'
   }).join(' ,') + EOL);
@@ -57,13 +58,13 @@ function showEvent(event, index) {
 
 function showBattle(event, index) {
   return index + " > Fight : " + _.map(event.foes, function(foe) {
-    return foe.name + ' (' + foe.attack + ' dmg / ' + foe.hp + ' hp)'
+    return showUnit(foe);
   }).join(', ');
 }
 
 function showJoin(event, index) {
   return index + " > Hire : " + _.map(event.friends, function(friend) {
-    return friend.name + ' (' + friend.attack + ' dmg / ' + friend.hp + ' hp)'
+    return showUnit(friend);
   }).join(', ');
 }
 
@@ -71,4 +72,8 @@ function showConstruct(event, index) {
   return index + " > Build : " + _.map(event.buildings, function(building) {
     return building.name + ' (' + building.cost + ' gold)'
   }).join(', ');
+}
+
+function showUnit(unit) {
+  return unit.name + ' (<span class="rpg-Icon1_55" />' + unit.attack + ' / ' + unit.hp + '<span class="rpg-Icon1_88" />)'
 }

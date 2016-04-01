@@ -18,14 +18,16 @@ describe('Event', function() {
       foes: [{
         name: 'goblin',
         hp: 1,
-        attack: 1
+        attack: 1,
+        gold: 1
       }]
     }, {
       isValid: true,
       foes: [{
         name: 'skeleton',
         hp: 2,
-        attack: 1
+        attack: 1,
+        gold: 2
       }]
     }]);
   });
