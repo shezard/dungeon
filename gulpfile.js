@@ -41,6 +41,11 @@ function bundle() {
     .pipe(gulp.dest('./dist'));
 }
 
+gulp.task('build-fonts', function() {
+  gulp.src('./src/fonts/**/**.**')
+    .pipe(gulp.dest('./dist/fonts'));
+});
+
 gulp.task('test', function (done) {
   new Server({
     configFile: __dirname + '/karma.conf.js'
