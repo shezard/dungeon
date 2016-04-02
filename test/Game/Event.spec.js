@@ -1,3 +1,5 @@
+var utils = require('../utils');
+
 var Event = require('../../src/Game/Event')(
   // TODO : inject random here
 );
@@ -13,22 +15,10 @@ describe('Event', function() {
       day: 0
     });
 
-    expect(events).toEqual([{
-      isValid: true,
-      foes: [{
-        name: 'goblin',
-        hp: 1,
-        attack: 1,
-        gold: 1
-      }]
+    expect(utils.summarize(events)).toEqual([{
+      foes: ['goblin']
     }, {
-      isValid: true,
-      foes: [{
-        name: 'skeleton',
-        hp: 2,
-        attack: 1,
-        gold: 2
-      }]
+      foes: ['skeleton']
     }]);
   });
 
@@ -37,20 +27,10 @@ describe('Event', function() {
       day: 1
     });
 
-    expect(events).toEqual([{
-      isValid: true,
-      friends: [{
-        name: 'soldier',
-        hp: 3,
-        attack: 1
-      }]
+    expect(utils.summarize(events)).toEqual([{
+      friends: ['soldier']
     }, {
-      isValid: true,
-      buildings: [{
-        name: 'mine',
-        cost: 0,
-        description: 'Generates 1 [gold] per [day]'
-      }]
+      buildings: ['mine']
     }]);
   });
 });
