@@ -17,5 +17,5 @@ function create(name) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  return new units[name]();
+  return _.clone(units[name]);
 }

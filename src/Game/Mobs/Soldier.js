@@ -1,7 +1,5 @@
-module.exports = Soldier;
-
-function Soldier() {
-  this.name = 'soldier';
-  this.attack = 1;
-  this.hp = 3;
+module.exports =  {
+  name: 'soldier',
+  attack: 1,
+  hp: 3
 }

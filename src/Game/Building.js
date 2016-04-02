@@ -16,5 +16,5 @@ function create(name) {
     throw new Error('Invalid building id: ' + name);
   }
 
-  return new buildings[name]();
+  return _.clone(buildings[name]);
 }

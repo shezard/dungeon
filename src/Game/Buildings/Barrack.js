@@ -1,6 +1,4 @@
-module.exports = Barrack;
-
-function Barrack() {
-  this.name = 'barrack';
-  this.cost = 5;
+module.exports = {
+  name: 'barrack',
+  cost: 5
 }

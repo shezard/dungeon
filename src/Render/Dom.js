@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var $ = require('jquery');
+var serialize = require('node-serialize');
 
 var EOL = '<br/>';
 
@@ -11,7 +12,7 @@ module.exports = {
 
 function init(step) {
   $('body').on('click', '.event', function() {
-    var event = JSON.parse($(this).attr('data-event'));
+    var event = serialize.unserialize($(this).attr('data-event'));
     $('body').empty();
     step(event);
   });
@@ -32,7 +33,8 @@ function showEvents(events) {
   $('body').append(_.map(events, function(event, index) {
 
     if(event.isValid) {
-      return '<span class="event" data-event=' + JSON.stringify(event) + '>' + showEvent(event, index) + '</span>';
+      console.log(serialize.serialize(event));
+      return '<span class="event" data-event=\'' + serialize.serialize(event) + '\'>' + showEvent(event, index) + '</span>';
     } else {
       return '<span style="text-decoration:line-through">' + showEvent(event, index) + '</span>';
     }
