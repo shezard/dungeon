@@ -45,10 +45,11 @@ describe('Event', function() {
         attack: 1
       }]
     }, {
-      isValid: false,
+      isValid: true,
       buildings: [{
-        name: 'barrack',
-        cost: 5,
+        name: 'mine',
+        cost: 0,
+        description: 'Generates 1 [gold] per [day]'
       }]
     }]);
   });

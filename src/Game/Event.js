@@ -10,7 +10,7 @@ var events = [
   [{
     friends: [Mob.create('soldier')]
   }, {
-    buildings: [Building.create('barrack')]
+    buildings: [Building.create('mine')]
   }],
   [{
     foes: [Mob.create('goblin')]

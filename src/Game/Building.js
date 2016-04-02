@@ -1,9 +1,13 @@
+var _ = require('lodash');
+
 var buildings = {
-  barrack: function() {
-    return {
-      name: 'barrack',
-      cost: 5
-    }
+  barrack: {
+    name: 'barrack',
+    cost: 5
+  }, mine: {
+    name: 'mine',
+    description: 'Generates 1 [gold] per [day]',
+    cost: 0
   }
 };
 
@@ -20,5 +24,5 @@ function create(name) {
     throw new Error('Invalid building id: ' + name);
   }
 
-  return buildings[name]();
+  return _.clone(buildings[name]);
 }

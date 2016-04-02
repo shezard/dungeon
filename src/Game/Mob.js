@@ -1,26 +1,22 @@
+var _ = require('lodash');
+
 var units = {
-  soldier: function() {
-    return {
-      name: 'soldier',
-      hp: 3,
-      attack: 1
-    };
+  soldier: {
+    name: 'soldier',
+    hp: 3,
+    attack: 1
   },
-  skeleton: function() {
-    return {
-      name: 'skeleton',
-      hp: 2,
-      attack: 1,
-      gold: 2
-    };
+  skeleton: {
+    name: 'skeleton',
+    hp: 2,
+    attack: 1,
+    gold: 2
   },
-  goblin: function() {
-    return {
-      name: 'goblin',
-      hp: 1,
-      attack: 1,
-      gold: 1
-    }
+  goblin: {
+    name: 'goblin',
+    hp: 1,
+    attack: 1,
+    gold: 1
   }
 }
 
@@ -37,5 +33,5 @@ function create(name) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  return units[name]();
+  return _.clone(units[name]);
 }
