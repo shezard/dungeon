@@ -21,7 +21,10 @@ function showState(state) {
   $('body').append("Day : " + state.day + EOL);
   $('body').append("Gold: " + (state.gold || 0) + EOL);
   $('body').append("Units : " + _.map(state.friends, function(friend) {
-    return friend.name + ' (' + friend.attack + '/' + friend.hp + ')'
+    return showUnit(friend);
+  }).join(' ,') + EOL);
+  $('body').append("Buildings : " + _.map(state.buildings, function(building) {
+    return building.name + ' (' + building.description +')'
   }).join(' ,') + EOL);
 }
 

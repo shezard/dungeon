@@ -10,10 +10,10 @@ describe('Building', function() {
 
     var barrack = Building.create('barrack');
 
-    expect(barrack).toEqual({
+    expect(barrack).toEqual(jasmine.objectContaining({
       name: 'barrack',
       cost: 5
-    });
+    }));
 
   });
 

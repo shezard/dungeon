@@ -1,3 +1,4 @@
+var utils = require('../utils');
 var Game = require('../../src/Game/Game.js');
 
 describe('Game', function() {
@@ -8,13 +9,8 @@ describe('Game', function() {
 
   it('initial state must have some default values', function() {
     var game = Game.start();
-    expect(game).toEqual({
-      day: 0,
-      friends: [{
-        name: 'soldier',
-        hp: 3,
-        attack: 1
-      }]
+    expect(utils.summarize(game)).toEqual({
+      friends: ['soldier']
     });
   });
 
@@ -166,6 +162,33 @@ describe('Game', function() {
         cost: 5
       }]
     });
+  });
+
+  it('should exec start turn actions', function() {
+
+    var next = Game.step({
+      day: 0,
+      buildings: [{
+        name: 'b',
+        onTurnStart : function(state) {
+          state.gold == null ? state.gold = 1 : state.gold += 1;
+          return state;
+        }
+      }],
+      friends: [{
+        name: 'f',
+        onTurnStart: function(state) {
+          state.gold == null ? state.gold = 1 : state.gold += 1;
+          return state;
+        }
+      }]
+    }, {});
+
+    expect(utils.summarize(next)).toEqual({
+      buildings: ['b'],
+      friends: ['f'],
+    });
+    expect(next.gold).toBe(2);
   });
 
   it('should proceed only with valid states', function() {

@@ -10,29 +10,29 @@ describe('Mob', function() {
 
     var soldier = Mob.create('soldier');
 
-    expect(soldier).toEqual({
+    expect(soldier).toEqual(jasmine.objectContaining({
       name: 'soldier',
       hp: 3,
       attack: 1
-    });
+    }));
 
     var skeleton = Mob.create('skeleton');
 
-    expect(skeleton).toEqual({
+    expect(skeleton).toEqual(jasmine.objectContaining({
       name: 'skeleton',
       hp: 2,
       attack: 1,
       gold: 2
-    });
+    }));
 
     var goblin = Mob.create('goblin');
 
-    expect(goblin).toEqual({
+    expect(goblin).toEqual(jasmine.objectContaining({
       name: 'goblin',
       hp: 1,
       attack: 1,
       gold: 1
-    });
+    }));
   });
 
   it('should throw on invalid mob creation request', function() {

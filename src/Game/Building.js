@@ -1,14 +1,6 @@
-var _ = require('lodash');
-
 var buildings = {
-  barrack: {
-    name: 'barrack',
-    cost: 5
-  }, mine: {
-    name: 'mine',
-    description: 'Generates 1 [gold] per [day]',
-    cost: 0
-  }
+  barrack: require('./Buildings/Barrack'),
+  mine: require('./Buildings/Mine')
 };
 
 module.exports = {
@@ -24,5 +16,5 @@ function create(name) {
     throw new Error('Invalid building id: ' + name);
   }
 
-  return _.clone(buildings[name]);
+  return new buildings[name]();
 }

@@ -1,23 +1,7 @@
-var _ = require('lodash');
-
 var units = {
-  soldier: {
-    name: 'soldier',
-    hp: 3,
-    attack: 1
-  },
-  skeleton: {
-    name: 'skeleton',
-    hp: 2,
-    attack: 1,
-    gold: 2
-  },
-  goblin: {
-    name: 'goblin',
-    hp: 1,
-    attack: 1,
-    gold: 1
-  }
+  soldier: require('./Mobs/Soldier'),
+  skeleton: require('./Mobs/Skeleton'),
+  goblin: require('./Mobs/Goblin'),
 }
 
 module.exports = {
@@ -33,5 +17,5 @@ function create(name) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  return _.clone(units[name]);
+  return new units[name]();
 }

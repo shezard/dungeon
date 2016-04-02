@@ -21,6 +21,18 @@ function step(state, event) {
     throw new State.invalid();
   }
 
+  _.each(state.friends, function(friend) {
+    if(friend.onTurnStart) {
+      state = friend.onTurnStart(state);
+    }
+  });
+
+  _.each(state.buildings, function(building) {
+    if(building.onTurnStart) {
+      state = building.onTurnStart(state);
+    }
+  });
+
   var friends = _.get(state, 'friends', []);
   var newFriends = _.get(event, 'friends', []);
   friends = _.concat(friends, newFriends);
