@@ -1,6 +1,7 @@
 var buildings = {
   barrack: require('./Buildings/Barrack'),
-  mine: require('./Buildings/Mine')
+  mine: require('./Buildings/Mine'),
+  farm: require('./Buildings/Farm')
 };
 
 module.exports = {

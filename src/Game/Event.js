@@ -16,6 +16,16 @@ var events = [
     foes: [Mob.create('goblin')]
   }, {
     foes: [Mob.create('skeleton')]
+  }],
+  [{
+    friends: [Mob.create('thief')]
+  },{
+    buildings: [Building.create('farm')]
+  }],
+  [{
+    foes: [Mob.create('goblinWarrior')]
+  }, {
+    foes: [Mob.create('goblinBerserker')]
   }]
 ];
 

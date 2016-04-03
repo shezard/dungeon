@@ -1,7 +1,11 @@
 var units = {
+  paysan: require('./Mobs/Paysan'),
   soldier: require('./Mobs/Soldier'),
+  thief: require('./Mobs/Thief'),
   skeleton: require('./Mobs/Skeleton'),
   goblin: require('./Mobs/Goblin'),
+  goblinBerserker: require('./Mobs/GoblinBerserker'),
+  goblinWarrior: require('./Mobs/GoblinWarrior')
 }
 
 module.exports = {
