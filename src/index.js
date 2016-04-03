@@ -6,8 +6,8 @@ var Render = require('./Render/Dom');
 var state;
 var events;
 
-Render.init(function(event) {
-  state = Game.step(state, event);
+Render.init(function(eventIndex) {
+  state = Game.step(state, events[eventIndex]);
   Render.showState(state);
 
   events = Event.create(state);
