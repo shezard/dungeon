@@ -26,7 +26,7 @@ function showState(state) {
   }).join(' ,') + EOL);
   $('body').append("Buildings : " + _.map(state.buildings, function(building) {
     return building.name + ' (' + building.description +')'
-  }).join(' ,') + EOL);
+  }).join(', ') + EOL);
 }
 
 function showEvents(events) {
