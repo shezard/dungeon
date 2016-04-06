@@ -191,6 +191,25 @@ describe('Game', function() {
     expect(next.gold).toBe(2);
   });
 
+  it('should remove current message', function() {
+    var next = Game.step({
+      day: 0,
+      message: 'Hay !'
+    }, {});
+
+    expect(next.message).not.toBeDefined();
+  });
+
+  it('should handle message in event', function() {
+    var next = Game.step({
+      day: 1
+    }, {
+      message: 'Hay !'
+    });
+
+    expect(next.message).toBe('Hay !');
+  });
+
   it('should proceed only with valid states', function() {
 
     expect(function() {

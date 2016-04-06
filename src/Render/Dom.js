@@ -19,13 +19,19 @@ function init(step) {
 
 function showState(state) {
   $('body').append("Day : " + state.day + EOL);
+  if(state.message) {
+    $('body').append(state.message + EOL);
+  }
   $('body').append("Gold: " + (state.gold || 0) + EOL);
   $('body').append("Units : " + _.map(state.friends, function(friend) {
     return showUnit(friend);
   }).join(' ,') + EOL);
-  $('body').append("Buildings : " + _.map(state.buildings, function(building) {
-    return building.name + ' (' + building.description +')'
-  }).join(', ') + EOL);
+  if(state.buildings && state.buildings.length) {
+    $('body').append("Buildings : " + _.map(state.buildings, function(building) {
+      return building.name + ' (' + building.description +')'
+    }).join(', ') + EOL);
+  }
+  $('body').append(EOL);
 }
 
 function showEvents(events) {

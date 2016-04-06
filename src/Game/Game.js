@@ -12,6 +12,7 @@ module.exports = {
 function start() {
   return {
     day: 0,
+    message: 'You wake up in the middle of the battlefield. Around you lay hundreds of body, mostly goblin, with a few human as well.',
     friends: [Mob.create('soldier')]
   };
 }
@@ -21,6 +22,7 @@ function step(state, event) {
     throw new State.invalid();
   }
 
+  // TODO : handle startup script in a function
   _.each(state.friends, function(friend) {
     if(friend.onTurnStart) {
       state = friend.onTurnStart(state);
@@ -45,11 +47,17 @@ function step(state, event) {
   var newBuildings = _.get(event, 'buildings', []);
   var construct = Construct(buildings, newBuildings);
 
-  return {
+  var nextState = {
     day: state.day + 1,
     friends: battle.friends,
     foes: battle.foes,
     buildings : construct.buildings,
     gold: (state.gold || 0) + (battle.gold || 0) + (construct.gold || 0)
+  };
+
+  if(event && event.message) {
+    nextState.message = event.message;
   }
+
+  return nextState;
 }
