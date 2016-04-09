@@ -4,8 +4,6 @@ var Building = require('./Building');
 var events = [
   [{
     foes: [Mob.create('goblin')]
-  }, {
-    foes: [Mob.create('skeleton')]
   }],
   [{
     friends: [Mob.create('soldier')]
@@ -26,6 +24,13 @@ var events = [
     foes: [Mob.create('goblinWarrior')]
   }, {
     foes: [Mob.create('goblinBerserker')]
+  }],
+  [{
+    message: 'A goblin warlock appears',
+    friends: [Mob.create('soldier'), Mob.create('paysan')]
+  }],
+  [{
+    foes: [Mob.create('goblinWarlock')]
   }]
 ];
 

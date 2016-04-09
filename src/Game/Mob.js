@@ -5,7 +5,8 @@ var units = {
   skeleton: require('./Mobs/Skeleton'),
   goblin: require('./Mobs/Goblin'),
   goblinBerserker: require('./Mobs/GoblinBerserker'),
-  goblinWarrior: require('./Mobs/GoblinWarrior')
+  goblinWarrior: require('./Mobs/GoblinWarrior'),
+  goblinWarlock: require('./Mobs/GoblinWarlock')
 }
 
 module.exports = {

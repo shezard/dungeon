@@ -38,7 +38,7 @@ function showEvents(events) {
   $('body').append(_.map(events, function(event, index) {
 
     if(event.isValid) {
-      return '<span class="event" data-event-index=\'' + index + '\'>' + showEvent(event, index) + '</span>';
+      return '<span class="event" data-event-index=\'' + index + '\'>' + showEvent(event, index + 1) + '</span>';
     } else {
       return '<span style="text-decoration:line-through">' + showEvent(event, index) + '</span>';
     }
