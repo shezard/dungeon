@@ -17,8 +17,6 @@ describe('Event', function() {
 
     expect(utils.summarize(events)).toEqual([{
       foes: ['goblin']
-    }, {
-      foes: ['skeleton']
     }]);
   });
 
