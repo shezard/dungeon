@@ -2,16 +2,20 @@ var React = require('React');
 
 module.exports = React.createClass({
   render: function() {
+
+    var prefix = '';
+    if(this.props.units.length) {
+      prefix = this.props.prefix + ': ';
+    }
+
     return (
       <span>
-      {
-        this.props.units.length ? 'Units: ' : '' 
-      }
-      {
-        this.props.units.map(function(unit) {
-          return unit.name + ' (' + unit.attack + '/' + unit.hp + ') ';
-        })
-      }
+        { prefix }
+        {
+          this.props.units.map(function(unit) {
+            return unit.name + ' (' + unit.attack + '/' + unit.hp + ') ';
+          })
+        }
       </span>
     );
   }

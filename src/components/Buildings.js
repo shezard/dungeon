@@ -9,7 +9,7 @@ module.exports = React.createClass({
       }
       {
         this.props.buildings.map(function(building) {
-          return building.name + '(' + building.cost + ' gold)';
+          return building.name + ' (' + building.cost + ' gold)';
         })
       }
       </span>

@@ -14,8 +14,8 @@ module.exports = React.createClass({
           return (
             <div key={index} onClick={this.props.handleClick.bind(null, event)}>
               { index + 1 } >
-              <Units units={event.foes} />
-              <Units units={event.friends} />
+              <Units units={event.foes} prefix={'Fight'}/>
+              <Units units={event.friends} prefix={'Hire'} />
               <Buildings buildings={event.buildings} />
             </div>
           );

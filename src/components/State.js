@@ -9,7 +9,7 @@ module.exports = React.createClass({
       <div>
         Day: {this.props.state.day} | Gold: {this.props.state.gold || 0 }<br/>
         {this.props.state.message}<br/>
-        <Units units={this.props.state.friends || []} /><br/>
+        <Units units={this.props.state.friends || []} prefix={'Units'}/><br/>
         <Buildings buildings={this.props.state.buildings || []} />
       </div>
     );
