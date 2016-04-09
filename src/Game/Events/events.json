@@ -1,0 +1,34 @@
+{
+  "days": [
+    [{
+      "foes": ["goblin"]
+    }],
+    [{
+      "friends": ["soldier"]
+    }, {
+      "buildings": ["mine"]
+    }],
+    [{
+      "foes": ["goblin"]
+    }, {
+      "foes": ["skeleton"]
+    }],
+    [{
+      "friends": ["thief"]
+    }, {
+      "buildings": ["farm"]
+    }],
+    [{
+      "foes": ["goblinWarrior"]
+    }, {
+      "foes": ["goblinBerserker"]
+    }],
+    [{
+      "message": "A goblin warlock appears",
+      "friends": ["soldier", "soldier", "paysan"]
+    }],
+    [{
+      "foes": ["goblinWarlock"]
+    }]
+  ]
+}

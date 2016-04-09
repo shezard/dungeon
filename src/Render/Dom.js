@@ -25,7 +25,7 @@ function showState(state) {
   $('body').append("Gold: " + (state.gold || 0) + EOL);
   $('body').append("Units : " + _.map(state.friends, function(friend) {
     return showUnit(friend);
-  }).join(' ,') + EOL);
+  }).join(', ') + EOL);
   if(state.buildings && state.buildings.length) {
     $('body').append("Buildings : " + _.map(state.buildings, function(building) {
       return building.name + ' (' + building.description +')'

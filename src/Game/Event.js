@@ -1,38 +1,21 @@
 var Mob = require('./Mob');
 var Building = require('./Building');
+var days = require('./Events/events.json').days;
 
-var events = [
-  [{
-    foes: [Mob.create('goblin')]
-  }],
-  [{
-    friends: [Mob.create('soldier')]
-  }, {
-    buildings: [Building.create('mine')]
-  }],
-  [{
-    foes: [Mob.create('goblin')]
-  }, {
-    foes: [Mob.create('skeleton')]
-  }],
-  [{
-    friends: [Mob.create('thief')]
-  },{
-    buildings: [Building.create('farm')]
-  }],
-  [{
-    foes: [Mob.create('goblinWarrior')]
-  }, {
-    foes: [Mob.create('goblinBerserker')]
-  }],
-  [{
-    message: 'A goblin warlock appears',
-    friends: [Mob.create('soldier'), Mob.create('paysan')]
-  }],
-  [{
-    foes: [Mob.create('goblinWarlock')]
-  }]
-];
+var events = _.map(days, function(dailyEvents) {
+  return _.map(dailyEvents, function(event) {
+    event.foes = _.map(event.foes, function(foe) {
+      return Mob.create(foe);
+    });
+    event.friends = _.map(event.friends, function(friend) {
+      return Mob.create(friend);
+    });
+    event.buildings = _.map(event.buildings, function(building) {
+      return Building.create(building);
+    });
+    return event;
+  });
+});
 
 module.exports = function() {
   return {
