@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Mob = require('./Mob');
 var Building = require('./Building');
 var days = require('./Events/events.json').days;

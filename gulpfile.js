@@ -14,6 +14,9 @@ var Server = require('karma').Server;
 // add custom browserify options here
 var customOpts = {
   entries: ['./src/index.js'],
+  transform: [['babelify', {
+    presets: ['react']
+  }]],
   debug: true
 };
 
