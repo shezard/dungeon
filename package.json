@@ -31,7 +31,6 @@
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
-    "jquery": "^2.2.2",
     "lodash": "^4.6.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
