@@ -8,8 +8,12 @@ module.exports = React.createClass({
         this.props.buildings.length ? 'Buildings: ' : ''
       }
       {
-        this.props.buildings.map(function(building) {
-          return building.name + ' (' + building.cost + ' gold)';
+        this.props.buildings.map(function(building, index) {
+          return(
+              <span key={index} title={building.description}>
+                {building.name + ' (' + building.cost + ' gold)'}
+              </span>
+          )
         })
       }
       </span>
