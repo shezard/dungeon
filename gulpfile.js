@@ -18,8 +18,11 @@ var customOpts = {
 };
 
 var opts = assign({}, watchify.args, customOpts);
-var b = watchify(browserify(opts));
+var b = browserify(opts);
 
+if(!process.env.TRAVIS) {
+  b = watchify(b);
+}
 // add transformations here
 // i.e. b.transform(coffeeify);
 
