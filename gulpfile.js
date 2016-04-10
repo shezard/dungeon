@@ -38,12 +38,17 @@ function bundle() {
     .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
        // Add transformation tasks to the pipeline here.
     .pipe(sourcemaps.write('./')) // writes .map file
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/assets/js'));
 }
+
+gulp.task('build-html', function() {
+  gulp.src('./index.html')
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('build-fonts', function() {
   gulp.src('./src/fonts/**/**.**')
-    .pipe(gulp.dest('./dist/fonts'));
+    .pipe(gulp.dest('./dist/assets/fonts'));
 });
 
 gulp.task('test', function (done) {
@@ -52,4 +57,6 @@ gulp.task('test', function (done) {
   }, done).start();
 });
 
-gulp.task('default', ['build-js', 'test'])
+gulp.task('build', ['build-html', 'build-js', 'build-fonts']);
+
+gulp.task('default', ['build', 'test']);
