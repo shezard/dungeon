@@ -8,6 +8,10 @@
   },
   "author": "Damien Fayol",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shezard/dungeon.git"
+  },
   "devDependencies": {
     "browserify-istanbul": "^2.0.0",
     "istanbul": "^0.4.2",
@@ -26,6 +30,7 @@
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
     "jquery": "^2.2.2",
     "lodash": "^4.6.1",
     "react": "^15.0.1",
