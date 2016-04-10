@@ -15,7 +15,7 @@ var Server = require('karma').Server;
 var customOpts = {
   entries: ['./src/index.js'],
   transform: [['babelify', {
-    presets: ['react']
+    presets: ['es2015', 'react']
   }]],
   debug: true
 };

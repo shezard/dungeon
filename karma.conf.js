@@ -17,7 +17,9 @@ module.exports = function(config) {
     },
     browserify: {
       debug: true,
-      transform: ['browserify-istanbul']
+      transform: [['babelify', {
+        presets: ['es2015', 'react']
+      }], 'browserify-istanbul']
     }
   });
 };
