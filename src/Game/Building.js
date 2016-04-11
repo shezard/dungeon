@@ -1,3 +1,5 @@
+var Skills = require('./Skills')(require('./Mob'));
+
 var buildings = {
   barrack: require('./Buildings/Barrack'),
   mine: require('./Buildings/Mine'),
@@ -17,5 +19,5 @@ function create(name) {
     throw new Error('Invalid building id: ' + name);
   }
 
-  return _.clone(buildings[name]);
+  return Skills.addTo(buildings[name]);
 }

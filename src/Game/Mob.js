@@ -1,4 +1,6 @@
-var units = {
+var Skills = require('./Skills')(require('./Mob'));
+
+var mobs = {
   paysan: require('./Mobs/Paysan'),
   soldier: require('./Mobs/Soldier'),
   thief: require('./Mobs/Thief'),
@@ -18,9 +20,13 @@ function create(name) {
     throw new Error('Empty mob id');
   }
 
-  if(!units[name]) {
+  if(!mobs[name]) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  return _.clone(units[name]);
+  var mob = mobs[name];
+
+  mob.maxHp = mob.hp;
+
+  return Skills.addTo(mob);
 }

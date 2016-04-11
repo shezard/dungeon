@@ -13,7 +13,11 @@ module.exports = React.createClass({
         { prefix }
         {
           this.props.units.map(function(unit) {
-            return unit.name + ' (' + unit.attack + '/' + unit.hp + ') ';
+            return (
+              <span>
+                {unit.name} (<span className="" />{unit.attack} - <span className="" />{unit.hp}/{unit.maxHp})
+              </span>
+            );
           })
         }
       </span>

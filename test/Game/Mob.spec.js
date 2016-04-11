@@ -13,6 +13,7 @@ describe('Mob', function() {
     expect(soldier).toEqual({
       name: 'soldier',
       hp: 3,
+      maxHp: 3,
       attack: 1
     });
 
@@ -21,6 +22,7 @@ describe('Mob', function() {
     expect(skeleton).toEqual({
       name: 'skeleton',
       hp: 2,
+      maxHp: 2,
       attack: 1,
       gold: 2
     });
@@ -30,6 +32,7 @@ describe('Mob', function() {
     expect(goblin).toEqual({
       name: 'goblin',
       hp: 1,
+      maxHp: 1,
       attack: 1,
       gold: 1
     });
