@@ -9,7 +9,8 @@ var mobs = {
   goblin: require('./Mobs/Goblin'),
   goblinBerserker: require('./Mobs/GoblinBerserker'),
   goblinWarrior: require('./Mobs/GoblinWarrior'),
-  goblinWarlock: require('./Mobs/GoblinWarlock')
+  goblinWarlock: require('./Mobs/GoblinWarlock'),
+  priest: require('./Mobs/Priest'),
 }
 
 module.exports = {
