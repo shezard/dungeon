@@ -22,5 +22,7 @@ function create(name) {
 
   var building = _.clone(buildings[name]);
 
+  console.log(Skills.addTo(building));
+
   return Skills.addTo(building);
 }

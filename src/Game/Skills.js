@@ -30,7 +30,6 @@ module.exports = function(Mob) {
       var thingSkills = _.map(thing.skills, function(skill) {
         return skills[skill]();
       });
-
       return _.assign(thing, thingSkills[0]);
     }
   }

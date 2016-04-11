@@ -1,24 +1,15 @@
 var utils = require('../../utils');
-var farm = require('../../../src/Game/Buildings/Farm');
+var Building = require('../../../src/Game/Building');
 
 describe('Farm', function() {
 
   it('should generate paysan', function() {
 
+    var farm = Building.create('farm');
+
     var next = farm.onTurnStart({});
     expect(utils.summarize(next)).toEqual({
       friends: ['paysan']
-    });
-
-    next = farm.onTurnStart({
-      friends: [{
-        name: 'soldier',
-        attack: 1,
-        hp: 3
-      }]
-    });
-    expect(utils.summarize(next)).toEqual({
-      friends: ['soldier', 'paysan']
     });
   });
 });
