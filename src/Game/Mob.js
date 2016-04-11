@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Skills = require('./Skills')(require('./Mob'));
 
 var mobs = {
@@ -24,7 +25,7 @@ function create(name) {
     throw new Error('Invalid mob id: ' + name);
   }
 
-  var mob = mobs[name];
+  var mob = _.clone(mobs[name]);
 
   mob.maxHp = mob.hp;
 

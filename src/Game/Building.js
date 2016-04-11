@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Skills = require('./Skills')(require('./Mob'));
 
 var buildings = {
@@ -19,5 +20,7 @@ function create(name) {
     throw new Error('Invalid building id: ' + name);
   }
 
-  return Skills.addTo(buildings[name]);
+  var building = _.clone(buildings[name]);
+
+  return Skills.addTo(building);
 }
