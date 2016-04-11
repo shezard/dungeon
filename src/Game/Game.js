@@ -22,18 +22,7 @@ function step(state, event) {
     throw new State.invalid();
   }
 
-  // TODO : handle startup script in a function
-  _.each(state.friends, function(friend) {
-    if(friend.onTurnStart) {
-      state = friend.onTurnStart(state);
-    }
-  });
-
-  _.each(state.buildings, function(building) {
-    if(building.onTurnStart) {
-      state = building.onTurnStart(state);
-    }
-  });
+  state = turnStart(state);
 
   var friends = _.get(state, 'friends', []);
   var newFriends = _.get(event, 'friends', []);
@@ -60,4 +49,17 @@ function step(state, event) {
   }
 
   return nextState;
+}
+
+function turnStart(state) {
+  var units = _.concat(state.friends, state.buildings);
+
+  state = _.reduce(units, function(state, unit) {
+    if(unit && unit.onTurnStart) {
+      state = unit.onTurnStart(state);
+    }
+    return state;
+  }, state)
+
+  return state;
 }
