@@ -7,8 +7,4 @@ var farm = {
   skills: ['makePaysan']
 }
 
-var skills = _.map(farm.skills, function(skill) {
-  return Skills[skill]();
-});
-
-module.exports = _.assign(farm, ...skills);
+module.exports = Skills.addTo(farm);

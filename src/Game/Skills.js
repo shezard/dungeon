@@ -1,11 +1,11 @@
 var Mob = require('./Mob');
 
-module.exports = {
-  makeGold: function(amount) {
+var skills = {
+  makeGold: function() {
     return {
-      description: 'Generates ' + amount + ' [gold] per [day]',
+      description: 'Generates 1 [gold] per [day]',
       onTurnStart: function(state) {
-        state.gold == null ? state.gold = amount : state.gold += amount;
+        state.gold == null ? state.gold = 1 : state.gold += 1;
         return state;
       }
     }
@@ -19,5 +19,15 @@ module.exports = {
         return state;
       }
     }
+  }
+}
+
+module.exports = {
+  addTo: function(thing) {
+    var thingSkills = _.map(thing.skills, function(skill) {
+      return skills[skill]();
+    });
+
+    return _.assign(thing, thingSkills[0]);
   }
 }

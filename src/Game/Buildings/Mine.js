@@ -1,9 +1,10 @@
-module.exports = {
+var _ = require('lodash');
+var Skills = require('../Skills');
+
+var mine = {
   name: 'mine',
-  description : 'Generates 1 [gold] per [day]',
   cost: 0,
-  onTurnStart: function(state) {
-    state.gold == null ? state.gold = 1 : state.gold += 1;
-    return state;
-  }
+  skills: ['makeGold']
 }
+
+module.exports = Skills.addTo(mine);
