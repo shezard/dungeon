@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 var watchify = require('watchify');
 var browserify = require('browserify');
 var gulp = require('gulp');
@@ -45,19 +47,22 @@ function bundle() {
     .pipe(gulp.dest('./dist/assets/js'));
 }
 
+function copy(src, dest) {
+  gulp.src(src)
+    .pipe(gulp.dest(dest));
+}
+
 gulp.task('build-html', function() {
-  gulp.src('./index.html')
-    .pipe(gulp.dest('./dist'));
+  copy('./index.html', './dist');
 });
 
 gulp.task('build-fonts', function() {
-  gulp.src('./src/fonts/**/**.**')
-    .pipe(gulp.dest('./dist/assets/fonts'));
+  copy('./src/fonts/**/**.**', './dist/assets/fonts');
 });
 
 gulp.task('test', function (done) {
   new Server({
-    configFile: __dirname + '/karma.conf.js'
+    configFile: path.join(__dirname, 'karma.conf.js')
   }, done).start();
 });
 
