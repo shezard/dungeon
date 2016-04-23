@@ -11,3 +11,7 @@ before_script:
   - npm install -g gulp
 after_success:
   - bash ./deploy.sh
+
+addons:
+  code_climate:
+    - repo_token: 6f2738e45d92df97c1885ae67759aaacf27324535d80a6d15b42fef086d035f0
