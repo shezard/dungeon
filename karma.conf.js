@@ -12,7 +12,7 @@ module.exports = function(config) {
     },
     autoWatch: true,
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : 'coverage/'
     },
     browserify: {
