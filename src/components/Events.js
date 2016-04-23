@@ -11,8 +11,14 @@ module.exports = React.createClass({
     return (
       <div>
         { events.map((event, index) => {
+          var onClick = function() {};
+          var textDecoration = 'line-through';
+          if(event.isValid) {
+            onClick = this.props.handleClick.bind(null, event);
+            var textDecoration = 'none';
+          }
           return (
-            <div key={index} onClick={this.props.handleClick.bind(null, event)}>
+            <div key={index} onClick={onClick} style={{textDecoration: textDecoration}}>
               { index + 1 } >
               <Units units={event.foes} prefix={'Fight'}/>
               <Units units={event.friends} prefix={'Hire'} />
