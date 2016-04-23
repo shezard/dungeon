@@ -5,15 +5,9 @@ var days = require('./Events/events.json').days;
 
 var events = _.map(days, function(dailyEvents) {
   return _.map(dailyEvents, function(event) {
-    event.foes = _.map(event.foes, function(foe) {
-      return Mob.create(foe);
-    });
-    event.friends = _.map(event.friends, function(friend) {
-      return Mob.create(friend);
-    });
-    event.buildings = _.map(event.buildings, function(building) {
-      return Building.create(building);
-    });
+    event.foes = createThing(event.foes, Mob.create);
+    event.friends = createThing(event.friends, Mob.create);
+    event.buildings = createThing(event.buildings, Building.create);
     return event;
   });
 });
@@ -40,4 +34,10 @@ function create(state) {
   })
 
   return currentEvents;
+}
+
+function createThing(thingList, create) {
+  return _.map(thingList, function(thing) {
+    return create(thing);
+  });
 }
