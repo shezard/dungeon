@@ -4,7 +4,7 @@ module.exports = {
 }
 
 function isValid(state) {
-  return !(!state || state.day == null || state.day < 0);
+  return !(!state || state.day === null || state.day === undefined || state.day < 0);
 }
 
 function invalid() {

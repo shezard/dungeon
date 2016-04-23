@@ -8,7 +8,11 @@ module.exports = function(Mob) {
       return {
         description: 'Generates 1 [gold] per [day]',
         onTurnStart: function(state) {
-          state.gold == null ? state.gold = 1 : state.gold += 1;
+          if(state.gold === null || state.gold === undefined) {
+            state.gold = 1;
+          } else {
+            state.gold += 1;
+          }
           return state;
         }
       }
@@ -18,7 +22,11 @@ module.exports = function(Mob) {
         description: 'Generate 1 [paysan] per [day]',
         onTurnStart: function(state) {
           var paysan = Mob.create("paysan");
-          state.friends == null ? state.friends = [paysan] : state.friends.push(paysan);
+          if(state.friends === null || state.friends === undefined) {
+            state.friends = [paysan];
+          } else {
+            state.friends.push(paysan);
+          }
           return state;
         }
       }

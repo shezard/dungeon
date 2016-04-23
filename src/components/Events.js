@@ -15,7 +15,7 @@ module.exports = React.createClass({
           var textDecoration = 'line-through';
           if(event.isValid) {
             onClick = this.props.handleClick.bind(null, event);
-            var textDecoration = 'none';
+            textDecoration = 'none';
           }
           return (
             <div key={index} onClick={onClick} style={{textDecoration: textDecoration}}>
