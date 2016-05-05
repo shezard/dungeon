@@ -24,6 +24,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 1,
       friends: [],
       foes: [],
@@ -47,6 +48,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 1,
       friends: [{
         attack: 1,
@@ -74,6 +76,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 1,
       friends: [{
         attack: 1,
@@ -100,6 +103,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 2,
       friends: [{
         attack: 1,
@@ -116,6 +120,7 @@ describe('Game', function() {
 
   it('should add gold if a battle gives gold', function() {
     var next = Game.step({
+      message: '',
       day: 1,
       friends: [{
         attack: 1,
@@ -130,6 +135,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 2,
       friends: [{
         attack: 1,
@@ -153,6 +159,7 @@ describe('Game', function() {
     });
 
     expect(next).toEqual({
+      message: '',
       day: 1,
       gold: 0,
       friends: [],
@@ -197,7 +204,7 @@ describe('Game', function() {
       message: 'Hay !'
     }, {});
 
-    expect(next.message).not.toBeDefined();
+    expect(next.message).toBe('');
   });
 
   it('should handle message in event', function() {

@@ -44,6 +44,7 @@ function step(state, event) {
     gold: (state.gold || 0) + (battle.gold || 0) + (construct.gold || 0)
   };
 
+  nextState.message = '';
   if(event && event.message) {
     nextState.message = event.message;
   }
