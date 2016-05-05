@@ -19,7 +19,7 @@ module.exports = React.createClass({
           }
           return (
             <div key={index} onClick={onClick} style={{textDecoration: textDecoration}}>
-              { index + 1 } >
+              { index + 1 } >&nbsp;
               <Units units={event.foes} prefix={'Fight'}/>
               <Units units={event.friends} prefix={'Hire'} />
               <Buildings buildings={event.buildings} />

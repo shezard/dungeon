@@ -10,9 +10,9 @@ module.exports = React.createClass({
       {
         this.props.buildings.map(function(building, index) {
           return(
-              <span key={index} title={building.description}>
-                {building.name + ' (' + building.cost + ' gold)'}
-              </span>
+              <div key={index} title={building.description}>
+                &nbsp;&nbsp;&nbsp;&nbsp;{building.name + ' (' + building.cost + ' gold)'}
+              </div>
           )
         })
       }
