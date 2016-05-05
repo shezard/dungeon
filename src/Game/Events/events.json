@@ -28,7 +28,13 @@
       "friends": ["soldier", "soldier", "paysan"]
     }],
     [{
+      "message": "You defeated the goblin warlock !",
       "foes": ["goblinWarlock"]
+    }],
+    [{
+      "travel": "east"
+    }, {
+      "travel": "north"
     }]
   ]
 }

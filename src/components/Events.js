@@ -2,6 +2,7 @@ var React = require('react');
 
 var Units = require('./Units');
 var Buildings = require('./Buildings');
+var Travel = require('./Travel');
 
 var Event = require('../Game/Event')();
 
@@ -23,6 +24,7 @@ module.exports = React.createClass({
               <Units units={event.foes} prefix={'Fight'}/>
               <Units units={event.friends} prefix={'Hire'} />
               <Buildings buildings={event.buildings} />
+              <Travel travel={event.travel} />
             </div>
           );
         }) }
