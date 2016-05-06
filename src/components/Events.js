@@ -8,10 +8,13 @@ var Event = require('../Game/Event')();
 
 module.exports = React.createClass({
   render: function() {
-    var events = Event.create(this.props.state);
+    var day = Event.create(this.props.state);
     return (
       <div>
-        { events.map((event, index) => {
+        <div>
+          { day.message }
+        </div>
+        { day.events.map((event, index) => {
           var onClick = function() {};
           var textDecoration = 'line-through';
           if(event.isValid) {

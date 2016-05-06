@@ -1,40 +1,47 @@
 {
-  "days": [
-    [{
+  "days": [{
+    "events": [{
       "foes": ["goblin"]
-    }],
-    [{
+    }]
+  }, {
+    "events": [{
       "friends": ["soldier"]
     }, {
       "buildings": ["mine"]
-    }],
-    [{
+    }]
+  }, {
+    "events": [{
       "foes": ["goblin"]
     }, {
       "foes": ["skeleton"]
-    }],
-    [{
+    }]
+  }, {
+    "events": [{
       "friends": ["thief"]
     }, {
       "buildings": ["farm"]
-    }],
-    [{
+    }]
+  }, {
+    "events": [{
       "foes": ["goblinWarrior"]
     }, {
       "foes": ["goblinBerserker"]
-    }],
-    [{
-      "message": "A goblin warlock appears",
+    }]
+  }, {
+    "events": [{
       "friends": ["soldier", "soldier", "paysan"]
-    }],
-    [{
+    }]
+  }, {
+    "message": "A goblin warlock appears",
+    "events": [{
       "message": "You defeated the goblin warlock !",
       "foes": ["goblinWarlock"]
-    }],
-    [{
+    }]
+  }, {
+    "events": [{
       "travel": "east"
     }, {
       "travel": "north"
     }]
-  ]
+  }]
 }

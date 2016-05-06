@@ -6,20 +6,22 @@ module.exports = {
 
 function summarize(state) {
 
-  if(!_.isArray(state)) {
-    return _summarize(state);
+  var events = state.events || state;
+
+  if(!_.isArray(events)) {
+    return _summarize(events);
   }
 
-  return _.map(state, _summarize);
+  return _.map(events, _summarize);
 }
 
-function _summarize(state) {
+function _summarize(event) {
   var summary = {};
   var itemsToSummarize = ['friends', 'buildings', 'foes'];
 
   _.each(itemsToSummarize, function(item) {
-    if(state[item] && state[item].length) {
-      summary[item] = _.map(state[item], 'name');
+    if(event[item] && event[item].length) {
+      summary[item] = _.map(event[item], 'name');
     }
   });
 

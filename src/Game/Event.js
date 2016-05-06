@@ -3,13 +3,18 @@ var Mob = require('./Mob');
 var Building = require('./Building');
 var days = require('./Events/events.json').days;
 
-var events = _.map(days, function(dailyEvents) {
-  return _.map(dailyEvents, function(event) {
+var events = _.map(days, function(day) {
+  var dailyEvents = _.map(day.events, function(event) {
     event.foes = createThing(event.foes, Mob.create);
     event.friends = createThing(event.friends, Mob.create);
     event.buildings = createThing(event.buildings, Building.create);
     return event;
   });
+
+  return {
+    message: day.message,
+    events: dailyEvents
+  };
 });
 
 module.exports = function() {
@@ -20,9 +25,9 @@ module.exports = function() {
 
 function create(state) {
 
-  var currentEvents = events[state.day];
+  var currentDay = events[state.day];
 
-  currentEvents = _.map(currentEvents, function(event) {
+  var currentEvents = _.map(currentDay.events, function(event) {
 
     var buildings = _.get(event, 'buildings', []);
     var buildingCosts = _.reduce(buildings, function(sum, building) {
@@ -33,7 +38,10 @@ function create(state) {
     return event;
   })
 
-  return currentEvents;
+  return {
+    message: currentDay.message,
+    events: currentEvents
+  }
 }
 
 function createThing(thingList, create) {
