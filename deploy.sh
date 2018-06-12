@@ -11,6 +11,9 @@ mkdir dist;
 # run our compile script, discussed above
 npm run webpack -- --mode=production
 
+# prepare index for gh-pages
+cp index.html dist/index.html
+
 # go to the out directory and create a *new* Git repo
 cd dist
 git init
