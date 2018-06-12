@@ -6,8 +6,8 @@ var Travel = require('./Travel');
 
 var Event = require('../Game/Event')();
 
-module.exports = React.createClass({
-  render: function() {
+class Events extends React.Component {
+  render() {
     var day = Event.create(this.props.state);
     return (
       <div>
@@ -34,4 +34,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+module.exports = Events;

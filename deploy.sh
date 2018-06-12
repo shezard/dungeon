@@ -9,7 +9,7 @@ rm -rf dist || exit 0;
 mkdir dist;
 
 # run our compile script, discussed above
-gulp build
+npm run webpack -- --mode=production
 
 # go to the out directory and create a *new* Git repo
 cd dist

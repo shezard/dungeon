@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-  render: function() {
+class Units extends React.Component {
+  render() {
 
     var prefix = '';
     if(this.props.units.length) {
@@ -26,4 +26,6 @@ module.exports = React.createClass({
       </span>
     );
   }
-})
+}
+
+module.exports = Units;

@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-  render: function() {
+class Buildings extends React.Component {
+  render() {
     return (
       <span>
       {
@@ -19,4 +19,6 @@ module.exports = React.createClass({
       </span>
     );
   }
-})
+}
+
+module.exports = Buildings;

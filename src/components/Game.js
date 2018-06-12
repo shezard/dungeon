@@ -5,14 +5,17 @@ var Game = require('../Game/Game.js');
 var State = require('./State');
 var Events = require('./Events');
 
-module.exports = React.createClass({
-  getInitialState: function() {
-    return Game.start();
-  },
-  handleClick: function(event) {
+class GameComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = Game.start();
+  };
+
+  handleClick = (event) => {
     this.setState(Game.step(this.state, event));
-  },
-  render: function() {
+  };
+
+  render() {
     return (
       <div>
         <State state={this.state} />
@@ -21,4 +24,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+module.exports = GameComponent;

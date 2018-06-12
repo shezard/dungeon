@@ -3,8 +3,8 @@ var React = require('react');
 var Units = require('./Units');
 var Buildings = require('./Buildings');
 
-module.exports = React.createClass({
-  render: function() {
+class State extends React.Component {
+  render() {
     return (
       <div>
         Day: {this.props.state.day} | Gold: {this.props.state.gold || 0 }<br/>
@@ -14,4 +14,6 @@ module.exports = React.createClass({
       </div>
     );
   }
-});
+}
+
+module.exports = State;

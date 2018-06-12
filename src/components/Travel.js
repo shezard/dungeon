@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-  render: function() {
+class Travel extends React.Component {
+  render() {
     if(!this.props.travel) {
       return null;
     }
@@ -11,4 +11,6 @@ module.exports = React.createClass({
       </span>
     )
   }
-});
+}
+
+module.exports = Travel;

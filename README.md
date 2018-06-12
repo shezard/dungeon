@@ -8,4 +8,4 @@ A simple javascript rpg
 
 ### Build
 
-> gulp
+> npm run webpack -- --mode=development
